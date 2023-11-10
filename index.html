@@ -6,33 +6,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protected Page</title>
     <style>
-        /* 省略其他样式 */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
             text-align: center;
         }
 
         header {
-            background-color: #ff5252;
+            background-color: #4285f4;
             padding: 20px;
             color: white;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         #login-box {
             margin: 50px auto;
-            width: 300px;
+            width: 80%;
+            max-width: 400px;
             padding: 20px;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #login-box h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        #login-box label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 16px;
+            color: #555;
+        }
+
+        #login-box input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        #login-box input[type="submit"] {
+            background-color: #4285f4;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #login-box input[type="submit"]:hover {
+            background-color: #3c78d8;
         }
 
         .content {
             display: none;
+            margin-top: 30px;
+            text-align: left;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        video,
+        .image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        video:hover,
+        .image:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #4285f4;
+            padding: 10px;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        #pulse-text {
+            color: #4285f4;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: pulse 1s infinite;
         }
 
         @keyframes pulse {
@@ -48,21 +150,13 @@
                 transform: scale(1);
             }
         }
-
-        #pulse-text {
-            color: #ff5252;
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 20px;
-            animation: pulse 1s infinite;
-        }
     </style>
 </head>
 
 <body>
 
     <header>
-        <h1>请复制到浏览器打开</h1>
+        <h1>🚀 请复制到浏览器打开</h1>
     </header>
 
     <div id="login-box">
@@ -70,20 +164,27 @@
         <form onsubmit="return checkAnswer()">
             <label for="answer">大猩猩的老婆是谁?</label>
             <input type="text" id="answer" name="answer" required>
-            <input type="submit" value="Submit">
+            <input type="submit" value="立即解锁">
         </form>
     </div>
 
     <div class="content" id="content-section">
         <section>
-            <video id="video" controls>
+            <h2>精彩内容展示</h2>
+            <video controls>
                 <source src="dijia.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
+            <p>大猩猩的悠闲生活</p>
+        </section>
 
-            <img class="image" src="daxingxing.jpg" alt="Your Image">
-            <img class="image" src="laogou.jpg" alt="Your Image">
-            <img class="image" src="laozhu.jpg" alt="Your Image">
+        <section>
+            <h2>精选图片欣赏</h2>
+            <div style="display: flex; justify-content: space-between;">
+                <img class="image" src="daxingxing.jpg" alt="Gorilla Image">
+                <img class="image" src="laogou.jpg" alt="Gorilla Image">
+                <img class="image" src="laozhu.jpg" alt="Gorilla Image">
+            </div>
         </section>
 
         <footer>
@@ -91,7 +192,7 @@
         </footer>
     </div>
 
-    <p id="pulse-text">复制到浏览器打开，享受精彩内容！</p>
+    <p id="pulse-text">🎉 复制到浏览器打开，享受精彩内容！ 🎉</p>
 
     <script>
         // 在加载时隐藏内容
@@ -108,7 +209,7 @@
                     // 显示内容
                     document.getElementById("content-section").style.display = "block";
                     document.getElementById("pulse-text").style.display = "none";
-                    alert("答案正确！");
+                    alert("答案正确！欢迎进入精彩世界！");
                 } else {
                     // 隐藏内容
                     document.getElementById("content-section").style.display = "none";
@@ -119,7 +220,3 @@
             return false; // 防止表单提交
         }
     </script>
-
-</body>
-
-</html>
