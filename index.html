@@ -7,18 +7,7 @@
     <title>Protected Page</title>
     <style>
         /* 省略其他样式 */
-
-        #login-box,
         .content {
-            display: none;
-        }
-
-        #login-box:target,
-        .content:target {
-            display: block;
-        }
-
-        #login-box:target #content-section {
             display: none;
         }
     </style>
@@ -57,14 +46,28 @@
     </div>
 
     <script>
+        // 在加载时隐藏内容
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("content-section").style.display = "none";
+        });
+
         function checkAnswer() {
             var answer = document.getElementById("answer").value.toLowerCase();
-            if (answer === "鹰") {
-                return true; // 允许表单提交
-            } else {
-                alert("答案不正确。请重试。");
-                return false;
-            }
+
+            // 模拟异步请求，实际项目中需替换为真实的异步请求
+            setTimeout(function () {
+                if (answer === "鹰") {
+                    // 显示内容
+                    document.getElementById("content-section").style.display = "block";
+                    alert("答案正确！");
+                } else {
+                    // 隐藏内容
+                    document.getElementById("content-section").style.display = "none";
+                    alert("答案不正确。请重试。");
+                }
+            }, 0);
+
+            return false; // 防止表单提交
         }
     </script>
 
