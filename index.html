@@ -7,16 +7,19 @@
     <title>Protected Page</title>
     <style>
         /* 省略其他样式 */
+
+        #login-box,
         .content {
             display: none;
         }
 
-        @media only screen and (min-width: 600px) {
+        #login-box:target,
+        .content:target {
+            display: block;
+        }
 
-            /* 在屏幕宽度大于等于600px时显示内容 */
-            .content {
-                display: block;
-            }
+        #login-box:target #content-section {
+            display: none;
         }
     </style>
 </head>
@@ -57,12 +60,8 @@
         function checkAnswer() {
             var answer = document.getElementById("answer").value.toLowerCase();
             if (answer === "鹰") {
-                // 显示内容
-                document.getElementById("content-section").style.display = "block";
-                return false; // 防止表单提交
+                return true; // 允许表单提交
             } else {
-                // 隐藏内容
-                document.getElementById("content-section").style.display = "none";
                 alert("答案不正确。请重试。");
                 return false;
             }
