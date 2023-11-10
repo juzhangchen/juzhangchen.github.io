@@ -7,8 +7,54 @@
     <title>Protected Page</title>
     <style>
         /* 省略其他样式 */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ff5252;
+            padding: 20px;
+            color: white;
+        }
+
+        #login-box {
+            margin: 50px auto;
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
         .content {
             display: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #pulse-text {
+            color: #ff5252;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: pulse 1s infinite;
         }
     </style>
 </head>
@@ -16,7 +62,7 @@
 <body>
 
     <header>
-        <h1>欢迎来到保护页面</h1>
+        <h1>请复制到浏览器打开</h1>
     </header>
 
     <div id="login-box">
@@ -45,6 +91,8 @@
         </footer>
     </div>
 
+    <p id="pulse-text">复制到浏览器打开，享受精彩内容！</p>
+
     <script>
         // 在加载时隐藏内容
         document.addEventListener("DOMContentLoaded", function () {
@@ -59,6 +107,7 @@
                 if (answer === "鹰") {
                     // 显示内容
                     document.getElementById("content-section").style.display = "block";
+                    document.getElementById("pulse-text").style.display = "none";
                     alert("答案正确！");
                 } else {
                     // 隐藏内容
@@ -67,10 +116,4 @@
                 }
             }, 0);
 
-            return false; // 防止表单提交
-        }
-    </script>
-
-</body>
-
-</html>
+            return false; //
