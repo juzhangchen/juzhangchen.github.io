@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cool Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #4285f4;
+            padding: 20px;
+            color: white;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        #video {
+            width: 100%;
+            height: auto;
+        }
+
+        #image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #4285f4;
+            padding: 10px;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #login-box {
+            margin: 50px auto;
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>下面三只拌蚊，去衰掉</h1>
+    </header>
+
+    <section>
+        <video id="video" controls>
+            <source src="dijia.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <img id="image" src="daxingxing.jpg" alt="Your Image">
+        <img id="image" src="laogou.jpg" alt="Your Image">
+        <img id="image" src="laozhu.jpg" alt="Your Image">
+    </section>
+
+    <footer>
+        <p>整天该扑母群静静，去阔🐕扑脚村.</p>
+    </footer>
+
+    <div id="login-box">
+        <h2>提示一下，什么的眼睛哈哈</h2>
+        <form onsubmit="return checkAnswer()">
+            <label for="answer">大猩猩的老婆是谁?</label>
+            <input type="text" id="answer" name="answer" required>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            var answer = document.getElementById("answer").value.toLowerCase();
+            if (answer === "鹰") {
+                alert("Correct answer! You can now access the page.");
+                return true;
+            } else {
+                alert("Incorrect answer. Try again.");
+                return false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
